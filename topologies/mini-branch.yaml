@@ -1,0 +1,49 @@
+# The list of nodes in the topology
+topology:
+  nodes:
+    Core-R1:
+      kind: cisco_csr1000v
+      image: arthurk99/cisco-csr1000v:17.03.08
+      mgmt-ipv4: 172.20.20.2
+      startup-config: "config/nodes/R1.cfg"
+
+    Distribution-SW1:
+      kind: ceos
+      image: takfa19/ceos:4.32.2F
+      mgmt-ipv4: 172.20.20.21
+      startup-config: "config/nodes/MLS1.cfg"
+      cpu: 0.5
+      memory: 2Gb
+
+    Distribution-SW2:
+      kind: ceos
+      image: takfa19/ceos:4.32.2F
+      mgmt-ipv4: 172.20.20.22
+      startup-config: "config/nodes/MLS2.cfg"
+      cpu: 0.5
+      memory: 2Gb
+
+    Access-SW1:
+      kind: arista_veos
+      image: cminsg/vr-veos:4.20.15M
+      mgmt-ipv4: 172.20.20.23
+      startup-config: "config/nodes/ASW1.cfg"
+      cpu: 0.5
+      memory: 2Gb
+
+    Access-SW2:
+      kind: arista_veos
+      image: cminsg/vr-veos:4.20.15M
+      mgmt-ipv4: 172.20.20.24
+      startup-config: "config/nodes/ASW2.cfg"
+      cpu: 0.5
+      memory: 2Gb
+
+  links:
+    - endpoints: [Core-R1:eth1, Distribution-SW1:eth1]
+    - endpoints: [Core-R1:eth2, Distribution-SW2:eth1]
+    - endpoints: [Distribution-SW1:eth2, Access-SW1:eth1]
+    - endpoints: [Distribution-SW1:eth3, Access-SW2:eth1]
+    - endpoints: [Distribution-SW2:eth2, Access-SW1:eth2]
+    - endpoints: [Distribution-SW2:eth3, Access-SW2:eth2]
+
