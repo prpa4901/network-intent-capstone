@@ -1,0 +1,36 @@
+device: MLS2
+action: configure_vlan
+vlans:
+  - vlan_id: 10
+    name: Engineering
+  - vlan_id: 20
+    name: Marketing
+  - vlan_id: 30
+    name: Sales
+
+interfaces:
+  - name: Ethernet1/1
+    mode: routed
+    ip_address: 192.168.2.2
+    subnet_mask: 255.255.255.252
+  - name: Ethernet1/2
+    mode: trunk
+    allowed_vlans: [10, 20, 30]
+    native_vlan: 1
+  - name: Ethernet1/3
+    mode: trunk
+    allowed_vlans: [10, 20, 30]
+    native_vlan: 1
+  - name: Ethernet1/4
+    mode: trunk
+    allowed_vlans: [10, 20, 30]
+    native_vlan: 1
+
+username: automationAdmin
+privilege: 15
+secret: automation123
+
+aaa:
+  authorization:
+    exec:
+      default: local
