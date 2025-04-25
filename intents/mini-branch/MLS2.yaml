@@ -1,0 +1,41 @@
+hostname: MLS2
+interfaces:
+  - name: Ethernet1/1
+    shutdown: false
+    switchport: false
+    ip_address: 192.168.2.2/30
+  - name: Ethernet1/2
+    shutdown: false
+    mode: trunk
+    trunk:
+      allowed_vlans: [10, 20, 30]
+      native_vlan: 1
+      nonegotiate: true
+  - name: Ethernet1/3
+    shutdown: false
+    mode: trunk
+    trunk:
+      allowed_vlans: [10, 20, 30]
+      native_vlan: 1
+      nonegotiate: true
+  - name: Ethernet1/4
+    shutdown: false
+    mode: trunk
+    trunk:
+      allowed_vlans: [10, 20, 30]
+      native_vlan: 1
+      nonegotiate: true
+vlans:
+  - id: 10
+    name: Engineering
+  - id: 20
+    name: Marketing
+  - id: 30
+    name: Sales
+username: automationAdmin
+privilege: 15
+secret: automation123
+aaa:
+  authorization:
+    exec:
+      default: local
