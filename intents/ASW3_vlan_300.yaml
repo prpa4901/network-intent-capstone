@@ -1,0 +1,3 @@
+vlans:
+  - id: 300
+    name: Guest
