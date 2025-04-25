@@ -1,0 +1,3 @@
+vlan:
+  - id: 100
+    name: Staff
