@@ -1,0 +1,7 @@
+# This is a test YAML file for testing GitHub operations
+# No actual network configurations are included
+
+vlan:
+  id: 10
+  name: Test_VLAN
+  state: active
