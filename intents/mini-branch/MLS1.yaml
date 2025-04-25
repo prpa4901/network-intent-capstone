@@ -1,0 +1,47 @@
+device: MLS1
+action: configure_interfaces
+interfaces:
+  - name: Ethernet1/1
+    switchport: false
+    ip_address: 192.168.1.2
+    subnet_mask: 255.255.255.252
+    shutdown: false
+  - name: Ethernet1/2
+    switchport: true
+    mode: trunk
+    trunk:
+      allowed_vlans: [10, 20, 30]
+      native_vlan: 1
+    nonegotiate: true
+    shutdown: false
+  - name: Ethernet1/3
+    switchport: true
+    mode: trunk
+    trunk:
+      allowed_vlans: [10, 20, 30]
+      native_vlan: 1
+    nonegotiate: true
+    shutdown: false
+  - name: Ethernet1/4
+    switchport: true
+    mode: trunk
+    trunk:
+      allowed_vlans: [10, 20, 30]
+      native_vlan: 1
+    nonegotiate: true
+    shutdown: false
+vlans:
+  - id: 10
+    name: Engineering
+  - id: 20
+    name: Marketing
+  - id: 30
+    name: Sales
+username:
+  name: automationAdmin
+  privilege: 15
+  secret: automation123
+aaa:
+  authorization:
+    exec:
+      default: local
