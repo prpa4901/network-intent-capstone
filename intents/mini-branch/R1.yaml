@@ -1,24 +1,5 @@
-hostname: R1
-interfaces:
-  - name: GigabitEthernet2
-    ip_address: 192.168.1.1/30
-    shutdown: false
-  - name: GigabitEthernet3
-    ip_address: 192.168.2.1/30
-    shutdown: false
-  - name: loopback0
-router:
-  bgp:
-    as_number: 65001
-    router_id: 2.2.2.2
-    neighbors:
-      - ip: 3.3.3.3
-        remote_as: 65001
-        next_hop_self: true
-        update_source: loopback0
-    networks:
-      - 192.168.1.0/30
-      - 192.168.2.0/30
-username: automationAdmin
-privilege: 15
-secret: automation123
+device: R1
+action: configure_interface
+interface: GigabitEthernet2
+ip_address: 192.168.10.1
+subnet_mask: 255.255.255.252
