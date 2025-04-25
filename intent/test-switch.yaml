@@ -1,0 +1,4 @@
+device: TestSwitch
+action: configure_vlan
+vlan_id: 40
+name: TestVLAN
