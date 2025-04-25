@@ -1,0 +1,23 @@
+hostname: Core-R1
+interfaces:
+  - name: GigabitEthernet1
+    description: Management Interface
+    vrf: clab-mgmt
+    ip_address: 10.0.0.15/24
+  - name: GigabitEthernet2
+    description: Link to Distribution-SW1
+    ip_address: 192.168.1.1/30
+  - name: GigabitEthernet3
+    description: Link to Distribution-SW2
+    ip_address: 192.168.2.1/30
+bgp:
+  as_number: 65001
+  router_id: 2.2.2.2
+  networks:
+    - 192.168.1.0/30
+    - 192.168.2.0/30
+  neighbors:
+    - ip: 3.3.3.3
+      remote_as: 65001
+      update_source: Loopback0
+      next_hop_self: true
