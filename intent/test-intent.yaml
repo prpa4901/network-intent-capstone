@@ -1,0 +1,12 @@
+# This is a test YAML file for network configuration intent
+
+network_device:
+  device_name: TestDevice
+  device_ip: 192.168.1.100
+  device_type: cisco_ios
+
+intended_config:
+  - interface GigabitEthernet0/1
+  - description Test Interface
+  - ip address 192.168.1.1 255.255.255.0
+  - no shutdown
