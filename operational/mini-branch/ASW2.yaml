@@ -1,0 +1,17 @@
+hostname: Access-SW2
+interfaces:
+  - name: Ethernet1
+    description: Uplink to Distribution-SW1
+    switchport_mode: trunk
+    allowed_vlans: 10,20,30
+  - name: Ethernet2
+    description: Uplink to Distribution-SW2
+    switchport_mode: trunk
+    allowed_vlans: 10,20,30
+vlans:
+  - id: 10
+    name: Engineering
+  - id: 20
+    name: Marketing
+  - id: 30
+    name: Sales
