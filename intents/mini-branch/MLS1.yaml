@@ -1,0 +1,45 @@
+hostname: MLSD1
+interfaces:
+  Ethernet1/1:
+    switchport: false
+    ip_address: 192.168.1.2/30
+    shutdown: false
+  Ethernet1/2:
+    switchport: true
+    mode: trunk
+    trunk:
+      allowed_vlans: 10,20,30
+      native_vlan: 1
+    shutdown: false
+    nonegotiate: true
+  Ethernet1/3:
+    switchport: true
+    mode: trunk
+    trunk:
+      allowed_vlans: 10,20,30
+      native_vlan: 1
+    shutdown: false
+    nonegotiate: true
+  Ethernet1/4:
+    switchport: true
+    mode: trunk
+    trunk:
+      allowed_vlans: 10,20,30
+      native_vlan: 1
+    shutdown: false
+    nonegotiate: true
+vlans:
+  10:
+    name: Engineering
+  20:
+    name: Marketing
+  30:
+    name: Sales
+users:
+  automationAdmin:
+    privilege: 15
+    secret: automation123
+aaa:
+  authorization:
+    exec:
+      default: local
