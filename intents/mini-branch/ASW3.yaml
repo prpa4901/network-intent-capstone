@@ -21,6 +21,8 @@ vlans:
     name: Marketing
   - id: 30
     name: Sales
+  - id: 900
+    name: Security
 username: automationAdmin
 privilege: 15
 secret: automation123
