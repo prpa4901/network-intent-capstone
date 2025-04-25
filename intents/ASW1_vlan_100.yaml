@@ -1,0 +1,4 @@
+device: ASW1
+action: configure_vlan
+vlan_id: 100
+name: Staff
