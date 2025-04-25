@@ -1,0 +1,10 @@
+# Sample YAML content for testing purposes
+---
+name: Test Device
+interfaces:
+  - name: eth0
+    description: Uplink
+    vlan: 10
+  - name: eth1
+    description: Internal
+    vlan: 20
