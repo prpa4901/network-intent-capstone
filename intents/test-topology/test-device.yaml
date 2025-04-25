@@ -1,0 +1,5 @@
+# This is a test YAML file for testing GitHub operations
+
+vlan:
+  id: 10
+  name: Test_VLAN
