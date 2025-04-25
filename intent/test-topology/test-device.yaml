@@ -1,0 +1,3 @@
+device: test-device
+action: test_action
+description: This is a test YAML file for PR creation.
