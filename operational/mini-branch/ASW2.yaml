@@ -1,0 +1,23 @@
+device: ASW2
+hostname: ASW2
+vlans:
+  - vlan_id: 10
+    name: Engineering
+  - vlan_id: 20
+    name: Marketing
+  - vlan_id: 30
+    name: Sales
+interfaces:
+  - name: Ethernet1
+  - name: Ethernet2
+  - name: Management1
+    ip_address: 10.0.0.15
+    subnet_mask: 255.255.255.0
+management_api:
+  http-commands:
+    protocol: unix-socket
+    shutdown: false
+  gnmi:
+    transport: grpc
+  netconf:
+    transport: ssh
