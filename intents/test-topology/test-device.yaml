@@ -1,0 +1,6 @@
+# This is a test YAML file for testing PR creation
+
+vlan:
+  id: 10
+  name: Test_VLAN
+  state: active
