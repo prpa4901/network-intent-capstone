@@ -19,6 +19,9 @@ router:
     networks:
       - 192.168.1.0/30
       - 192.168.2.0/30
+static_routes:
+  - network: 6.6.6.6
+    next_hop: 192.168.1.2
 username: automationAdmin
 privilege: 15
 secret: automation123
