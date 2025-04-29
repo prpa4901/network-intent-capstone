@@ -1,0 +1,3 @@
+device: test-device
+action: test_action
+parameter: test_value
