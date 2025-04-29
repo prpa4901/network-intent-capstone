@@ -1,0 +1,30 @@
+hostname: R1
+version: 17.3
+interfaces:
+  - name: Loopback0
+    ip_address: none
+  - name: GigabitEthernet1
+    vrf: clab-mgmt
+    ip_address: 10.0.0.15/24
+  - name: GigabitEthernet2
+    ip_address: 192.168.1.1/30
+  - name: GigabitEthernet3
+    ip_address: none
+router_bgp:
+  as_number: 65001
+  router_id: 2.2.2.2
+  networks:
+    - 192.168.1.0/30
+    - 192.168.2.0/30
+  neighbors:
+    - address: 3.3.3.3
+      remote_as: 65001
+      update_source: Loopback0
+      next_hop_self: true
+ip_route:
+  vrf: clab-mgmt
+  destination: 0.0.0.0/0
+  next_hop: 10.0.0.2
+services:
+  - name: netconf-yang
+  - name: restconf
