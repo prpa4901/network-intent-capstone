@@ -1,0 +1,22 @@
+hostname: ASW1
+vlans:
+  - id: 10
+    name: Engineering
+  - id: 20
+    name: Marketing
+  - id: 30
+    name: Sales
+interfaces:
+  - name: Ethernet1
+  - name: Ethernet2
+  - name: Management1
+    ip_address: 10.0.0.15/24
+management:
+  api:
+    http-commands:
+      protocol: unix-socket
+      shutdown: false
+    gnmi:
+      transport: grpc
+    netconf:
+      transport: ssh
