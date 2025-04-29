@@ -1,0 +1,38 @@
+device: ASW2
+hostname: ASW2
+spanning_tree_mode: mstp
+aaa:
+  authorization:
+    exec:
+      default: local
+  no_root: true
+users:
+  - username: admin
+    role: network-admin
+    secret: sha512 $6$5X7mfie8JLfhpXS0$Ys7mkYBsNgnknWUEwEqYgDjzkRRxWXTrwznbmPjou4k03ANDEdSovvxNmS48n89WyVuJtGHfBnvbQRzlbZuMF/
+  - username: automationAdmin
+    privilege: 15
+    secret: sha512 $6$fcL5jNklKLd9Shll$VKgJU04k8.ltOo0UNjwYSGMQOGf/o7tEYbPlHXLw94g5F7v5aH/XpzTXK1dZ.seIrdBBFkUw8Wkon1wlf2Szl.
+vlans:
+  - id: 10
+    name: Engineering
+  - id: 20
+    name: Marketing
+  - id: 30
+    name: Sales
+interfaces:
+  - name: Ethernet1
+  - name: Ethernet2
+  - name: Management1
+    ip_address: 10.0.0.15/24
+ip_routing: false
+management_api:
+  http_commands:
+    protocol: unix-socket
+    shutdown: false
+  gnmi:
+    transport: grpc
+    default: true
+  netconf:
+    transport: ssh
+    default: true
