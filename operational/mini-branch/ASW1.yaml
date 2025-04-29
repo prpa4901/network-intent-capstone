@@ -1,0 +1,47 @@
+! Command: show running-config
+! device: ASW1 (vEOS, EOS-4.20.15M)
+!
+! boot system flash:/vEOS-lab.swi
+!
+transceiver qsfp default-mode 4x10G
+!
+hostname ASW1
+!
+spanning-tree mode mstp
+!
+aaa authorization exec default local
+!
+no aaa root
+!
+username admin role network-admin secret sha512 $6$A1FUQznR1gtFcmFb$BO4zbFSl2v.UcfwwkaVwYXjrB6iDBAILNnOPuAme2/bFwiW9SemMJJgOQwXCraBWoAT.tkKJiHpcmZmxD/Yfx.
+username automationAdmin privilege 15 secret sha512 $6$8N1h2ipESaA/gFwa$.ZF8tbwezFK.m4TWRJbaQU.7VgWkKgQ2lE2AH3AQsjQBXsyu.ftz3QwBioAiOGTfvxkDpiy.VlC8efWsn1Stf.
+!
+vlan 10
+   name Engineering
+!
+vlan 20
+   name Marketing
+!
+vlan 30
+   name Sales
+!
+interface Ethernet1
+!
+interface Ethernet2
+!
+interface Management1
+   ip address 10.0.0.15/24
+!
+no ip routing
+!
+management api http-commands
+   protocol unix-socket
+   no shutdown
+!
+management api gnmi
+   transport grpc default
+!
+management api netconf
+   transport ssh default
+!
+end
