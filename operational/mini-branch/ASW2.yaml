@@ -1,0 +1,32 @@
+hostname: ASW2
+spanning_tree_mode: mstp
+aaa_authorization_exec_default: local
+no_aaa_root: true
+users:
+  - username: admin
+    role: network-admin
+  - username: automationAdmin
+    privilege: 15
+vlan:
+  - id: 10
+    name: Engineering
+  - id: 20
+    name: Marketing
+  - id: 30
+    name: Sales
+interfaces:
+  - name: Ethernet1
+  - name: Ethernet2
+  - name: Management1
+    ip_address: 10.0.0.15/24
+no_ip_routing: true
+management_api:
+  http_commands:
+    protocol: unix-socket
+    no_shutdown: true
+  gnmi:
+    transport: grpc
+    default: true
+  netconf:
+    transport: ssh
+    default: true
