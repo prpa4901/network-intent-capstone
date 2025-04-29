@@ -1,0 +1,15 @@
+hostname: ASW1
+interfaces:
+  Ethernet1:
+    description: ""
+  Ethernet2:
+    description: ""
+  Management1:
+    ip_address: 10.0.0.15/24
+vlans:
+  10:
+    name: Engineering
+  20:
+    name: Marketing
+  30:
+    name: Sales
