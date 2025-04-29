@@ -1,16 +1,10 @@
 hostname: MLSD1
-vlans:
-  - id: 10
-    name: Engineering
-  - id: 20
-    name: Marketing
-  - id: 30
-    name: Sales
 interfaces:
+  Ethernet1:
+    description: ""
   Ethernet1/1:
     description: ""
     ip_address: 192.168.1.2/30
-    switchport_mode: ""
   Ethernet1/2:
     description: ""
     switchport_mode: trunk
@@ -24,6 +18,12 @@ interfaces:
     switchport_mode: trunk
     allowed_vlans: 10,20,30
   Management0:
-    description: ""
     ip_address: 172.20.20.21/24
-    ipv6_address: 3fff:172:20:20::6/64
+    ipv6_address: 3fff:172:20:20::5/64
+vlans:
+  10:
+    name: Engineering
+  20:
+    name: Marketing
+  30:
+    name: Sales
