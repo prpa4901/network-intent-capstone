@@ -1,5 +1,6 @@
+name: mini-branch-topology
 # The list of nodes in the topology
-topology:
+topology: 
   nodes:
     Core-R1:
       kind: cisco_csr1000v
